@@ -1,0 +1,30 @@
+<!-- container to display  -->
+<div class="container">
+<h3>Customer Details</h3>
+<!-- ngfor to display value of customers -->
+<tr *ngFor ='let customer of customers' >
+    <td>First Name : {{customer.firstName}}</td> 
+    <td>Last Name : {{customer.lastName}}</td> 
+    <td>Address : {{customer.address}}</td> 
+    <td>City : {{customer.city}}</td> 
+
+</tr>
+<!-- datepicker -->
+
+
+<h3>Datepicker</h3>
+<h2><input type="date" [(ngModel)] = "clickDate"></h2>
+<h2 datepicker [clickDate]="clickDate">{{clickDate}}</h2>
+<!-- truncate and ellipsis -->
+<h3>{{head8 | customPipe}}</h3>
+<h4>{{ str | truncate:[]}}</h4>
+
+<!-- parent component -->
+<h3>{{head10 | customPipe}}</h3>
+<input type="text" [(ngModel)]="parentCustomer"  placeholder="Type here to search Name..">
+
+<!-- child component -->
+<h3>{{heading | customPipe }}</h3>
+<app-customer-details-child [childCustomer] = "parentCustomer" ></app-customer-details-child>
+</div>
+

@@ -1,0 +1,74 @@
+<div class="container">
+  
+  <!-- titlecase  -->
+<h3>1. Custom Titlecase</h3>
+<h4>{{ food | customPipe }}</h4>
+
+<!-- ngfor directive for looping multiple values -->
+
+<h3>{{head | customPipe}}</h3>
+
+<!-- custom search filter for searching the list of values  -->
+
+<h3>{{head4 | customPipe}}</h3>
+<input type="text" placeholder="cook your food here...."  [(ngModel)]="foodName">
+
+<!-- custom directive to to highlight the selected item when clicked. -->
+<ng-container *ngIf="(items | filterPipe : foodName) as items">
+  <div *ngFor="let item of items " appHighlight [elements] = "elements" > 
+    <td >{{item}}</td>  
+</div>
+<div *ngIf="items.length===0">
+  <td>No Records Found</td> 
+  </div>
+</ng-container>
+
+<!-- tooltip with image -->
+
+<h3>{{head5 | customPipe}}</h3>
+<div class="row">
+    <div class="column" appTooltip [mytooltip]="'done with coconut milk'">
+      <div class="card">
+        <h3> Ginataang Sugpo</h3>
+        <img src="../../../assets/img/Ginataang Sugpo.jfif" alt="Avatar" style="width:200px;height:200px;">
+        
+      </div>
+    </div>
+  
+    <div class="column" appTooltip [mytooltip]="'to cook fish in a broth'">
+      <div class="card">
+        <h3>Pinangat</h3>
+        <img src="../../../assets/img/pinangat.jpg" alt="Avatar" style="width:200px;height:200px;">
+        
+      </div>
+    </div>
+    
+    <div class="column" appTooltip [mytooltip]="' marinated mixtures of raw or cooked vegetables'">
+      <div class="card">
+        <h3>Vegetable Salad</h3>
+        <img src="../../../assets/img/vegetasble.jpg" alt="Avatar" style="width:200px;height:200px;">
+        
+      </div>
+    </div>
+    
+    <div class="column" appTooltip [mytooltip]="'steak of cut from the shoulder of the pig'">
+      <div class="card">
+        <h3>Porkchop</h3>
+        <img src="../../../assets/img/Porkchop.jfif" alt="Avatar"style="width:200px;height:200px;">
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- passing data from parent to child using input decorator -->
+
+  <h3>{{head3 | customPipe}}</h3>
+
+<!-- using form in a component that sends data to a parent component using the @Output decorator -->
+
+<app-food-items-child [foodChild] = "foodParent" (sum)="newAdd($event)" ></app-food-items-child>
+
+<br>
+<h3>Total Price ={{Addition}}</h3>
+
+</div>

@@ -1,0 +1,17 @@
+<!-- display the data in the child component using the *ngFor directive. -->
+<h4>
+<tr *ngFor ='let food of foodChild'>
+    <td>Price : {{food.foodPrice}}</td> 
+    <td>Name : {{food.foodName}}</td> 
+</tr>
+</h4>
+<h3>6. @Output decorator</h3>
+
+<!-- using ngform -->
+<form class="form-group" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <input type="number" placeholder="Enter the dish price" name="order1" ngModel ><br><br>
+    <input type="number"  placeholder="Enter the dessert price" name="order2" ngModel ><br>
+    <br>
+    <button class="btn btn-success">Total Price</button>
+</form>
+

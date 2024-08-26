@@ -1,0 +1,13 @@
+<!-- to loop child array values -->
+<ng-container *ngIf="( customers| filter1:childCustomer) as customers">
+<div class="container" *ngFor ='let customer of customers'>
+    <td>{{customer}}</td>
+    </div>
+
+<!-- no records found -->
+<div *ngIf="customers.length===0">
+    <td>No Records Found</td> 
+</div>
+</ng-container>
+
+
